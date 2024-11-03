@@ -83,7 +83,7 @@ This Flask-based API allows you to securely access the contents of specified fil
 2. **Production Mode with Gunicorn**:
    - Use Gunicorn to run the app in a production environment:
      ```bash
-     gunicorn -w 4 -b 0.0.0.0:8080 --certfile=/path/to/server.crt --keyfile=/path/to/server.key main:app
+     gunicorn -w 4 -b 0.0.0.0:8080 main:app --certfile=/path/to/server.crt --keyfile=/path/to/server.key --config=/Users/js/PycharmProjects/GenericDataAgent/config.json
      ```
    - **Options**:
      - `-w 4`: Number of worker processes (adjust based on your server's resources).
