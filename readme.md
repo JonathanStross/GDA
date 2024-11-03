@@ -104,7 +104,7 @@ This Flask-based API allows you to securely access the contents of specified fil
      call venv\Scripts\activate
      set SECRET_KEY=your_secret_key
      set CONFIG_PATH=C:\path\to\your\config.json
-     gunicorn -w 4 -b 0.0.0.0:443 --certfile=server.crt --keyfile=server.key your_script:app
+     gunicorn -w 4 -b 0.0.0.0:8080 --certfile=server.crt --keyfile=server.key your_script:app
      ```
    - Save this file in a location you can easily access.
 
@@ -124,11 +124,11 @@ This Flask-based API allows you to securely access the contents of specified fil
    - Create a shell script, for example, `start_flask_app.sh` with the following content:
      ```bash
      #!/bin/bash
-     cd /path/to/your/project
+     cd /path/to/your/location
      source venv/bin/activate
      export SECRET_KEY="your_secret_key"
      export CONFIG_PATH="/path/to/your/config.json"
-     gunicorn -w 4 -b 0.0.0.0:443 --certfile=server.crt --keyfile=server.key your_script:app
+     gunicorn -w 4 -b 0.0.0.0:8080 --certfile=server.crt --keyfile=server.key your_script:app
      ```
    - Make the script executable:
      ```bash
@@ -148,12 +148,12 @@ This Flask-based API allows you to securely access the contents of specified fil
    - Create a new service file, for example, `/etc/systemd/system/flask_app.service`:
      ```ini
      [Unit]
-     Description=Flask Secure File Access API
+     Description=GDA Generic Data Access
      After=network.target
 
      [Service]
      User=your_username
-     WorkingDirectory=/path/to/your/project
+     WorkingDirectory=/path/to/your/location
      Environment="SECRET_KEY=your_secret_key"
      Environment="CONFIG_PATH=/path/to/your/config.json"
      ExecStart=/path/to/your/project/venv/bin/gunicorn -w 4 -b 0.0.0.0:443 --certfile=server.crt --keyfile=server.key your_script:app
@@ -165,7 +165,7 @@ This Flask-based API allows you to securely access the contents of specified fil
 
    - **Replace**:
      - `your_username` with your Linux username.
-     - `/path/to/your/project` with the path to your project directory.
+     - `/path/to/your/location` with the path to your project directory.
 
 2. **Enable and Start the Service**:
    ```bash
@@ -193,7 +193,7 @@ This Flask-based API allows you to securely access the contents of specified fil
 
 **Example Request**:
 ```bash
-curl -X GET "https://localhost/getfile_content?filepath=/path/to/your/file.txt" -H "Secret-Key: your_secret_key"
+curl -X GET "https://localhost:8080/getfile_content?filepath=/path/to/your/file.txt" -H "Secret-Key: your_secret_key"
 ```
 
 ---
@@ -221,6 +221,6 @@ curl -X GET "https://localhost/getfile_content?filepath=/path/to/your/file.txt" 
 ## Contact
 - **Author**: Jonathan Stross
 - **Email**: jonathan.stross@pathlock.com
-- **GitHub**: [Albastross](https://github.com/yourusername)
+- **GitHub**: [JonathanStross](https://github.com/JonathanStross)
 
 Feel free to open issues or contribute to this project!
