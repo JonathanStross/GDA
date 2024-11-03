@@ -1,0 +1,15 @@
+# Ignore virtual environment
+venv/
+
+# Ignore Python cache files
+__pycache__/
+
+# Ignore IDE-specific settings
+.idea/
+
+# Ignore SSL certificates
+server.crt
+server.key
+
+# Ignore any text files used for testing
+test.txt
