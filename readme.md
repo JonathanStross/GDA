@@ -21,8 +21,8 @@ This Flask-based API allows you to securely access the contents of specified fil
 
 1. **Clone the Repository**:
    ```bash
-   git clone https://github.com/yourusername/yourrepository.git
-   cd yourrepository
+   git clone https://github.com/JonathanStross/GDA.git
+   cd GDA
    ```
 
 2. **Create and Activate a Virtual Environment**:
@@ -77,13 +77,13 @@ This Flask-based API allows you to securely access the contents of specified fil
 1. **Development Mode**:
    - Run the Flask app directly (for development or testing purposes):
      ```bash
-     python your_script.py
+     python main.py
      ```
 
 2. **Production Mode with Gunicorn**:
    - Use Gunicorn to run the app in a production environment:
      ```bash
-     gunicorn -w 4 -b 0.0.0.0:8080 --certfile=/path/to/server.crt --keyfile=/path/to/server.key your_script:app
+     gunicorn -w 4 -b 0.0.0.0:8080 --certfile=/path/to/server.crt --keyfile=/path/to/server.key main:app
      ```
    - **Options**:
      - `-w 4`: Number of worker processes (adjust based on your server's resources).
@@ -100,7 +100,7 @@ This Flask-based API allows you to securely access the contents of specified fil
    - Create a `.bat` file, for example, `start_flask_app.bat` with the following content:
      ```batch
      @echo off
-     cd C:\path\to\your\project
+     cd C:\path\to\location\
      call venv\Scripts\activate
      set SECRET_KEY=your_secret_key
      set CONFIG_PATH=C:\path\to\your\config.json
